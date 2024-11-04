@@ -37,14 +37,14 @@ Para executar os testes, siga as etapas abaixo:
 
 1. **Instale as dependências**:
 
-   ```bash
+```bash
    npm install
-  ``
+```
 2. **Execute os testes no modo Headless:**
 ```bash
 npx cypress run
-````
-2.1 **Ou Execute os testes no modo Interativo:**
+```
+3. **Ou Execute os testes no modo Interativo:**
 ```bash
 npx cypress open
 ```
