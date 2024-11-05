@@ -130,8 +130,8 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     When Preencho o nome do destinatário
     And Clico em salvar o endereço
     Then O sistema deve emitir um alerta informando que o número é obrigatório
-    And O menu de preenchimento do endereço de entrega continua aberto
     And Um ícone de sucesso não deve aparecer na linha de rolagem de etapas
+    And O menu de preenchimento do endereço de entrega continua aberto
 
   
 

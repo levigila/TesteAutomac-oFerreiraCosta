@@ -214,17 +214,19 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
       cy.get(selectorsList.campoCepEnderecoPagamento).type(userData.enderecoCEP)
-      BasePage.espera2s();
+      BasePage.espera5s();
       cy.get(selectorsList.semNumeroCheckBoxPagamento).click()
-      BasePage.espera2s();
+      BasePage.espera5s();
       cy.get(selectorsList.semNumeroCheckBoxPagamento).click()
+      BasePage.espera5s();
       cy.get(selectorsList.campoNumeroEnderecoPagamento).should('have.value', '')
       cy.get(selectorsList.campoNomeDestinatarioEnderecoPagamento).type(userData.nomeDestinatarioEndereco)
       cy.get(selectorsList.botaoSalvarEnderecoPagamento).click()
       cy.get(selectorsList.alertarDeErroCamposObrigatorios).should('contain', 'Preencha os campos obrigatórios antes de enviar.')
-      BasePage.espera2s();
-      cy.get(selectorsList.botaoSalvarEnderecoPagamento).should('be.visible')
+      BasePage.espera3s();
       cy.get(selectorsList.iconeEnderecoAdicionadoSucesso).should('not.exist')
+      cy.get(selectorsList.botaoSalvarEnderecoPagamento).should('be.visible')
+      
     });
 
   });
