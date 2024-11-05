@@ -82,7 +82,7 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     Then O(s) endereço(s) já cadastrado(s) é/são mostrado(s) na tela
     And Clico em "Selecionar endereço" no endereço que desejo
 
-  Scenario: Preenchimento do endereço de entrega com os campos obrigatórios vazios (Destinatário e Número)
+  Scenario: Erro - Preenchimento do endereço de entrega com os campos obrigatórios vazios (Destinatário e Número)
     Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
     When Preencho o campo do CEP
     And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
@@ -91,7 +91,7 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     Then Um alerta de erro aparece 
     And O menu de preenchimento do endereço de entrega continua aberto
 
-  Scenario: Preenchimento do endereço de entrega com o campo Nome do destinatário vazio
+  Scenario: Erro - Preenchimento do endereço de entrega com o campo "Nome do destinatário" vazio
     Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
     When Preencho o campo do CEP
     And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
@@ -100,7 +100,7 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     Then Um alerta de erro aparece 
     And O menu de preenchimento do endereço de entrega continua aberto
 
-  Scenario: Preenchimento do endereço de entrega com o campo Número vazio
+  Scenario: Erro - Preenchimento do endereço de entrega com o campo "Número" vazio e sem usar a checkbox "sem número"
     Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
     When Preencho o campo do CEP
     And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
@@ -108,3 +108,30 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     And Clico no botão "Salvar Endereço"
     Then Um alerta de erro aparece 
     And O menu de preenchimento do endereço de entrega continua aberto
+
+  Scenario: Sucesso - Preenchimento do endereço de entrega sem número usando a checkbox "sem número"
+    Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
+    When Preencho o campo do CEP
+    And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
+    And Seleciono a checkbox "sem número"
+    And preencho o nome do destinatário
+    Then O menu de preenchimento do endereço de entrega se fecha
+    And Nenhum alerta aparece
+    And Um ícone de Sucesso aparece na linha de rolagem de etapas
+
+  Scenario: Erro - Desmarcar a checkbox "sem número", preencher o destinatário e salvar
+    Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
+    And Preencho o campo de CEP
+    And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
+    When Seleciono a checkbox "sem número"
+    And Desmarco a checkbox "sem número"
+    Then O campo de número deve estar vazio
+    When Preencho o nome do destinatário
+    And Clico em salvar o endereço
+    Then O sistema deve emitir um alerta informando que o número é obrigatório
+    And O menu de preenchimento do endereço de entrega continua aberto
+    And Um ícone de sucesso não deve aparecer na linha de rolagem de etapas
+
+  
+
+  
