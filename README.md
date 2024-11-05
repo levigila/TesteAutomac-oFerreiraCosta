@@ -8,10 +8,11 @@ O projeto está organizado seguindo o padrão de **Page Objects**, que ajuda a m
 
 ### Page Objects
 
+- **BasePage.js**: Fornece métodos utilitários comuns, como rolar a página para baixo e esperar por intervalos de tempo específicos.
 - **HomePage.js**: Contém métodos para interações na página inicial, como fechar o modal de cookies, selecionar um produto e adicionar ao carrinho.
-- **CartPage.js**: Inclui métodos para abrir o carrinho e prosseguir com o checkout.
-- **LoginPage.js**: Oferece métodos para lidar com o login e registro de usuários.
-- **CheckoutPage.js**: Abrange métodos para inserir detalhes de endereço, selecionar opções de entrega e finalizar pedidos.
+- **CartPage.js**: Inclui métodos para verificar a URL da página do carrinho e prosseguir com o fechamento do pedido.
+- **PaymentPage.js**: Oferece métodos para preencher os detalhes de endereço e realizar o pagamento via Pix, incluindo a confirmação do pedido.
+- **RegisterPage.js**: Abrange métodos para realizar o cadastro de novos usuários e efetuar login com credenciais de teste.
 
 ### Cenários de Teste
 
