@@ -66,11 +66,11 @@ Scenario: Erro - Desmarcar a checkbox "sem número", preencher o destinatário e
   Then O sistema deve emitir um alerta informando que o número é obrigatório
   And Um ícone de sucesso não deve aparecer na linha de rolagem de etapas
   And O menu de preenchimento do endereço de entrega continua aberto
-
+```
 ## Vídeo
 Link: https://screenrec.com/share/tucIAkQKXz 
 
-### Script de Automação em Cypress
+## Script de Automação em Cypress
 
 ```bash
 it.only('Falha ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
