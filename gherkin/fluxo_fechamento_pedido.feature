@@ -71,7 +71,7 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     And A etapa de Modalidade de Entrega é liberada
     And Seleciono "Retirar em Loja" como modalidade de entrega
     Then Deve aparecer um campo para selecionar a loja para retirada
-    And Eu clico e seleciono uma loja
+    And Eu clico selecionar uma loja
 
   Scenario: Selecionar endereço de entrega já preenchido e salvo anteriormente
     Given Sou um usuário cadastrado que já preenchi meu endereço de entrega anteriormente
@@ -113,8 +113,9 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
     When Preencho o campo do CEP
     And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
-    And Seleciono a checkbox "sem número"
+    And Marco a checkbox "sem número"
     And preencho o nome do destinatário
+    And Clico no botão "Salvar Endereço"
     Then O menu de preenchimento do endereço de entrega se fecha
     And Nenhum alerta aparece
     And Um ícone de Sucesso aparece na linha de rolagem de etapas
@@ -123,7 +124,7 @@ Feature: Fechamento de Pedido na Ferreira Costa com Pagamento via PIX
     Given Sou um usuário cadastrando um novo endereço de entrega na página de pagamento
     And Preencho o campo de CEP
     And Os campos de Número, Complemento, Ponto de referência e Nome do destinatário são liberados
-    When Seleciono a checkbox "sem número"
+    When Marco a checkbox "sem número"
     And Desmarco a checkbox "sem número"
     Then O campo de número deve estar vazio
     When Preencho o nome do destinatário

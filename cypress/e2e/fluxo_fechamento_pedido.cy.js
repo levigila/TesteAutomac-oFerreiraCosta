@@ -41,6 +41,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
     campoLoginIconePerfilEntrar: '#login',
     campoSenhaIconePerfilEntrar: '#password',
     botaoEntrarIconePerfilEntrar: '.kINcSM',
+    semNumeroCheckBoxPagamento: '#noNumber',
     campoCepEnderecoPagamento: '#zipCode',
     campoNumeroEnderecoPagamento: '.dcICvc', //eq(4)
     campoComplementoEnderecoPagamento: '#addressComplement',
@@ -82,7 +83,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
   });
 
   context('Teste de Usuário não cadastrado iniciando processo de fechamento de pedido e pagamento via Pix', () => {
-    it.only('Inicia o pagamento via Pix para usuário não cadastrado', () => {
+    it('Inicia o pagamento via Pix para usuário não cadastrado', () => {
       BasePage.espera2s();
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
@@ -156,7 +157,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       cy.get(selectorsList.iconeEnderecoAdicionadoSucesso)
     });
 
-    it('Alerta de erro ao salvar endereço sem Destinatário e sem Número', () => {
+    it('Falha ao salvar endereço sem Destinatário e sem Número', () => {
       BasePage.espera2s();
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
@@ -167,7 +168,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       cy.get(selectorsList.alertarDeErroCamposObrigatorios).should('contain', 'Preencha os campos obrigatórios antes de enviar.');
     });
 
-    it('Alerta de erro ao salvar endereço sem Nome do destinatário', () => {
+    it('Falha ao salvar endereço sem Nome do destinatário', () => {
       BasePage.espera2s();
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
@@ -179,7 +180,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       cy.get(selectorsList.alertarDeErroCamposObrigatorios).should('contain', 'Preencha os campos obrigatórios antes de enviar.');
     });
 
-    it('Alerta de erro ao salvar endereço sem Número', () => {
+    it('Falha ao salvar endereço sem Número', () => {
       BasePage.espera2s();
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
@@ -190,6 +191,42 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       cy.get(selectorsList.botaoSalvarEnderecoPagamento).click()
       cy.get(selectorsList.alertarDeErroCamposObrigatorios).should('contain', 'Preencha os campos obrigatórios antes de enviar.');
     });
+
+    it('Sucesso ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
+      BasePage.espera2s();
+      HomePage.adicionarProdutoAoCarrinho();
+      CartPage.fecharOPedido();
+      RegisterPage.realizarLoginUsuario();
+      cy.get(selectorsList.campoCepEnderecoPagamento).type(userData.enderecoCEP)
+      BasePage.espera2s();
+      cy.get(selectorsList.semNumeroCheckBoxPagamento).click()
+      cy.get(selectorsList.campoNomeDestinatarioEnderecoPagamento).type(userData.nomeDestinatarioEndereco)
+      cy.get(selectorsList.botaoSalvarEnderecoPagamento).click()
+      BasePage.espera2s();
+      cy.get(selectorsList.botaoSalvarEnderecoPagamento).should('not.exist')
+      cy.get(selectorsList.alertarDeErroCamposObrigatorios).should('not.exist')
+      cy.get(selectorsList.iconeEnderecoAdicionadoSucesso)
+    });
+
+    it.only('Falha ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
+      BasePage.espera2s();
+      HomePage.adicionarProdutoAoCarrinho();
+      CartPage.fecharOPedido();
+      RegisterPage.realizarLoginUsuario();
+      cy.get(selectorsList.campoCepEnderecoPagamento).type(userData.enderecoCEP)
+      BasePage.espera2s();
+      cy.get(selectorsList.semNumeroCheckBoxPagamento).click()
+      BasePage.espera2s();
+      cy.get(selectorsList.semNumeroCheckBoxPagamento).click()
+      cy.get(selectorsList.campoNumeroEnderecoPagamento).should('have.value', '')
+      cy.get(selectorsList.campoNomeDestinatarioEnderecoPagamento).type(userData.nomeDestinatarioEndereco)
+      cy.get(selectorsList.botaoSalvarEnderecoPagamento).click()
+      cy.get(selectorsList.alertarDeErroCamposObrigatorios).should('contain', 'Preencha os campos obrigatórios antes de enviar.')
+      BasePage.espera2s();
+      cy.get(selectorsList.botaoSalvarEnderecoPagamento).should('be.visible')
+      cy.get(selectorsList.iconeEnderecoAdicionadoSucesso).should('not.exist')
+    });
+
   });
 });
 
