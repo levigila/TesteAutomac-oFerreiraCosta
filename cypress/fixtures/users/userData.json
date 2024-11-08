@@ -1,24 +1,24 @@
-  // {
-  //   "nameSuccess": "Testador Testando",
-  //   "cpfSuccess": "031.224.220-42", // Cpf gerado para Testes
-  //   "emailSuccess": "levi.gila@hotmail.com",
-  //   "phoneSuccess": "81979017808",
-  //   "birthdaySuccess": "08082008",
-  //   "passwordSuccess": "Testando123",
+  {
+    "nameSuccess": "Testador Testando",
+    "cpfSuccess": "031.224.220-42", 
+    "emailSuccess": "junjie3327@uorak.com",
+    "phoneSuccess": "81979017808",
+    "birthdaySuccess": "08082008",
+    "passwordSuccess": "Abcd!123",
     
-  //   "nameFail": "Teste",
-  //   "cpfFail": "12345678910",
-  //   "emailFail": "teste@teste",
-  //   "phoneFail": "11111111111",
-  //   "birthdayFail": "11111111",
-  //   "passwordFail": "123",
+    "nameFail": "Teste",
+    "cpfFail": "12345678910",
+    "emailFail": "teste@teste",
+    "phoneFail": "11111111111",
+    "birthdayFail": "11111111",
+    "passwordFail": "123",
 
-  //   "login": "levi.gila@hotmail.com",
-  //   "password": "Levimarinho!123",
+    "login": "junjie3327@uorak.com",
+    "password": "Abcd!123",
 
-  //   "enderecoCEP": "55293-909",
-  //   "numeroEndereco": "512",
-  //   "complementoEndereco": "Centro",
-  //   "pontoReferenciaEndereco": "N/A",
-  //   "nomeDestinatarioEndereco": "Testador Testando Oficial"
-  // }
+    "enderecoCEP": "55293-909",
+    "numeroEndereco": "512",
+    "complementoEndereco": "Centro",
+    "pontoReferenciaEndereco": "N/A",
+    "nomeDestinatarioEndereco": "Testador Testando Oficial"
+  }

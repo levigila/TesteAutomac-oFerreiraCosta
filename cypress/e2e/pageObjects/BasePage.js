@@ -1,3 +1,4 @@
+// cypress/pages/BasePage.js
 class BasePage {
     static selectorsList = {
         urlField: 'pathname',
