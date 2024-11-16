@@ -2,7 +2,8 @@
 class CartPage {
     static selectorsList = {
         urlField: 'pathname',
-        botaoFecharPedidoPaginaCarrinho: '.ImePp'
+        botaoFecharPedidoPaginaCarrinho: '.ImePp',
+        
     }
 
     fecharOPedido() {
@@ -12,7 +13,15 @@ class CartPage {
       
     }
 
+    checarUrlDaPaginaDoCarrinho() {
+      cy.location(CartPage.selectorsList.urlField).should('equal', '/checkout/meu-carrinho')
+    }
+
+    visualizarBotaoFecharPedidoPaginaCarrinho() {
+      cy.get(CartPage.selectorsList.botaoFecharPedidoPaginaCarrinho).should('be.visible')
+    }
   }
   
   export default new CartPage();
+  
   

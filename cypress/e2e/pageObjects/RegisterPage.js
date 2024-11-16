@@ -15,6 +15,9 @@ class RegisterPage {
         campoLoginIconePerfilEntrar: '#login',
         campoSenhaIconePerfilEntrar: '#password',
         botaoEntrarIconePerfilEntrar: '.kINcSM',
+        campoCodigoVerificacao: '.jNdhiG',
+        botaoFecharPopUpVerificacao: '.hvhMPg',
+        botaoEntrarCadastro: '.yLVYI',
     }
 
     realizarCadastroUsuario() {
@@ -38,7 +41,15 @@ class RegisterPage {
       cy.get(RegisterPage.selectorsList.botaoEntrarIconePerfilEntrar).click()
       
     }
+
+    fecharPopUpCodigoVerificacao() {
+      cy.get(RegisterPage.selectorsList.campoCodigoVerificacao).eq(0);
+      cy.get(RegisterPage.selectorsList.botaoFecharPopUpVerificacao).should('be.visible').click();
   }
-  
+
+    clicaNoBotaoEntrarNoMenuCadastro() {
+      cy.get(RegisterPage.selectorsList.botaoEntrarCadastro).should('be.visible').click();
+    }
+}
   export default new RegisterPage();
   
