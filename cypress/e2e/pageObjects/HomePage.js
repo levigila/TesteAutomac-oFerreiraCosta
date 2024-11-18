@@ -1,3 +1,4 @@
+import userData from '../../fixtures/users/userData.json'
 // cypress/pages/HomePage.js
 class HomePage {
     static selectorsList = {
@@ -6,8 +7,8 @@ class HomePage {
         adicionarAoCarrinho: '.ZtenW', // eq(0)
         botaoVoltagemContinuar: '[data-cy="modal-voltage-button-success"]',
         botaoIconeCarrinho: '.cart-btn', // eq(0)
-        abaCarrinho: '.piEFJ',
-        botaoFecharPedidoAbaCarrinho: '.dSqjcx',
+        abaCarrinho: '.bFLTtb',
+        botaoFecharPedidoAbaCarrinho: '.ePqaHx',
         botaoIconePerfilEntrar: '.jDFuAe',
         formularioConfirmacaoDeLogin: '[data-cy="form-container"]',
         campoLoginConfirmacaoDeLogin: '[data-cy="input-email-login"]',
@@ -19,7 +20,7 @@ class HomePage {
     adicionarProdutoAoCarrinho() {
       cy.get(HomePage.selectorsList.botaoCookie).click();
       cy.scrollTo(0, 500);
-      cy.get(HomePage.selectorsList.produtoEscolhido).eq(0).click({force: true});
+      cy.get(HomePage.selectorsList.produtoEscolhido).eq(9).click({force: true});
       cy.scrollTo(0, 500);
       cy.get(HomePage.selectorsList.adicionarAoCarrinho).should('be.visible').eq(0).click();
       cy.wait(4000);
@@ -39,7 +40,7 @@ class HomePage {
     }
     fecharPedidoPelaAbaCarrinho() {
       cy.get(HomePage.selectorsList.botaoIconeCarrinho).should('be.visible').eq(0).click();
-      cy.get(HomePage.selectorsList.abaCarrinho).should('be.visible')
+      cy.get(HomePage.selectorsList.abaCarrinho).should('be.visible');
       cy.get(HomePage.selectorsList.botaoFecharPedidoAbaCarrinho).should('be.visible').click();
     }
     confirmarLoginNovamenteCasoSistemaPeça() {
