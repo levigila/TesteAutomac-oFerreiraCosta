@@ -46,7 +46,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
   });
 
   context('Teste de Usuário cadastrado iniciando processo de fechamento de pedido e pagamento via Pix', () => {
-    it.only('Inicia o pagamento via Pix para usuário cadastrado', () => {
+    it('Inicia o pagamento via Pix para usuário cadastrado', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -57,7 +57,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
   });
 
   context('Teste de modalidade de entrega escolhendo loja para retirada', () => {
-    it.only('Seleciona modalidade "Retirar em Loja" e escolhe a loja', () => {
+    it('Seleciona modalidade "Retirar em Loja" e escolhe a loja', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -68,7 +68,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
   });
 
   context('Teste de endereço de entrega escolhendo endereço salvo anteriormente', () => {
-    it.only('Seleciona um endereço de entrega já salvo', () => {
+    it('Seleciona um endereço de entrega já salvo', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -77,7 +77,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
   });
 
   context('Testes dos campos obrigatórios no preenchimento do endereço de entrega', () => {
-    it.only('Sucesso ao salvar endereço somente com Destinatário e Número', () => {
+    it('Sucesso ao salvar endereço somente com Destinatário e Número', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -86,7 +86,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       PaymentPage.verificarSucessoNoSalvarEndereco();
     });
 
-    it.only('Falha ao salvar endereço sem Destinatário e sem Número', () => {
+    it('Falha ao salvar endereço sem Destinatário e sem Número', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -95,7 +95,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       PaymentPage.verificarAparecimentoMensagemDeErroCamposObrigatorios();
     });
 
-    it.only('Falha ao salvar endereço sem Nome do destinatário', () => {
+    it('Falha ao salvar endereço sem Nome do destinatário', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -104,7 +104,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       PaymentPage.verificarAparecimentoMensagemDeErroCamposObrigatorios();
     });
 
-    it.only('Falha ao salvar endereço sem Número', () => {
+    it('Falha ao salvar endereço sem Número', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -113,7 +113,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       PaymentPage.verificarAparecimentoMensagemDeErroCamposObrigatorios();
     });
 
-    it.only('Sucesso ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
+    it('Sucesso ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
@@ -126,7 +126,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
       PaymentPage.verificarAparecimentoIconeDeSucessoNoCadastro(); // Deve aparecer, o que significa
     });
 
-    it.only('Falha ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
+    it('Falha ao salvar endereço com destinatário e checkbox "sem número" marcada', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
       RegisterPage.realizarLoginUsuario();
