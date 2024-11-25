@@ -9,7 +9,7 @@ class HomePage {
         botaoIconeCarrinho: '.cart-btn', // eq(0)
         abaCarrinho: '.bFLTtb',
         botaoFecharPedidoAbaCarrinho: '.ePqaHx',
-        botaoIconePerfilEntrar: '.jDFuAe',
+        botaoIconePerfilEntrar: '.cQydrv',
         formularioConfirmacaoDeLogin: '[data-cy="form-container"]',
         campoLoginConfirmacaoDeLogin: '[data-cy="input-email-login"]',
         campoSenhaConfirmacaoDeLogin: '[data-cy="input-password-login"]',

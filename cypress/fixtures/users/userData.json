@@ -1,10 +1,6 @@
   {
-    "nameSuccess": "Testador Testando",
-    "cpfSuccess": "109.480.880-60", 
     "emailSuccess": "natalia-milena@tuamaeaquelaursa.com",
     "phoneSuccess": "81979017808",
-    "birthdaySuccess": "08082008",
-    "passwordSuccess": "Abcd!1234",
     
     "nameFail": "Teste",
     "cpfFail": "12345678910",

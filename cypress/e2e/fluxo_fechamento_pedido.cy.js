@@ -4,6 +4,11 @@ import RegisterPage from './pageObjects/RegisterPage';
 import PaymentPage from './pageObjects/PaymentPage';
 import CartPage from './pageObjects/CartPage';
 
+const Chance = require('chance');
+const chance = new Chance();
+var moment = require('moment');
+ 
+
 ///<reference types="cypress" />
 
 describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagamento via PIX', () => {
@@ -31,7 +36,7 @@ describe('Testes que envolvem o Fechamento de Pedido na Ferreira Costa com Pagam
     it('Inicia o pagamento via Pix para usuário não cadastrado', () => {
       HomePage.adicionarProdutoAoCarrinho();
       CartPage.fecharOPedido();
-      RegisterPage.realizarCadastroUsuario();
+      RegisterPage.realizarCadastroUsuario(chance.name(), chance.cpf(), moment().format('DDMMYYYY'), chance.android_id());
       RegisterPage.fecharPopUpCodigoVerificacao();// Aqui é onde a Etapa de Verificação de Nova Conta com Código começa a ser Pulada
       RegisterPage.clicaNoBotaoEntrarNoMenuCadastro();
       HomePage.clicaNoBotaoIconePerfilNaPaginaInicial();

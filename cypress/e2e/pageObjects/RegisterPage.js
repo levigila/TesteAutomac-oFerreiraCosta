@@ -20,16 +20,16 @@ class RegisterPage {
         botaoEntrarCadastro: '.yLVYI',
     }
 
-    realizarCadastroUsuario() {
+    realizarCadastroUsuario(nomeCadastro, cpfCadastro, dataNascCadastro, senhaCadastro) {
       cy.get(RegisterPage.selectorsList.botaoCadastrarPopUpLogin).click({force: true});
       
-      cy.get(RegisterPage.selectorsList.campoNomeCadastro).type(userData.nameSuccess);
-      cy.get(RegisterPage.selectorsList.campoCPFCadastro).type(userData.cpfSuccess);
+      cy.get(RegisterPage.selectorsList.campoNomeCadastro).type(nomeCadastro);
+      cy.get(RegisterPage.selectorsList.campoCPFCadastro).type(cpfCadastro);
       cy.get(RegisterPage.selectorsList.campoEmailCadastro).type(userData.emailSuccess);
       cy.get(RegisterPage.selectorsList.campoCelularCadastro).type(userData.phoneSuccess);
-      cy.get(RegisterPage.selectorsList.campoDataNascCadastro).type(userData.birthdaySuccess);
-      cy.get(RegisterPage.selectorsList.campoSenhaCadastro).type(userData.passwordSuccess);
-      cy.get(RegisterPage.selectorsList.campoConfirmSenhaCadastro).type(userData.passwordSuccess);
+      cy.get(RegisterPage.selectorsList.campoDataNascCadastro).type(dataNascCadastro);
+      cy.get(RegisterPage.selectorsList.campoSenhaCadastro).type(senhaCadastro);
+      cy.get(RegisterPage.selectorsList.campoConfirmSenhaCadastro).type(senhaCadastro);
       cy.get(RegisterPage.selectorsList.termosCheckBoxCadastro).click();
       cy.get(RegisterPage.selectorsList.botaoContinuarCadastro).click();
       
