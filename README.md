@@ -16,7 +16,7 @@ O projeto está organizado seguindo o padrão de **Page Objects**, que ajuda a m
 
 ### Uso de `chance.js` e `moment.js`
 
-Durante os testes de registro de usuários, utilizamos as bibliotecas `chance.js` e `moment.js` para gerar dados dinâmicos e confiáveis:
+Durante os testes de registro de usuários, utilizei as bibliotecas `chance.js` e `moment.js` para gerar dados dinâmicos e confiáveis:
 
 - **`chance.js`**: Gerador de dados aleatórios como nome, sobrenome, e-mail e senha. Essa abordagem permite que cada execução do teste crie um novo usuário único, evitando conflitos no banco de dados ou reutilização de credenciais.
 - **`moment.js`**: Utilizado para gerar datas formatadas e lidar com validações relacionadas a datas. Por exemplo, ao preencher campos de data de nascimento, garantimos que os valores seguem o formato esperado pela aplicação.
